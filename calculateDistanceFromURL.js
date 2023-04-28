@@ -1,10 +1,8 @@
 // OpenStreetMap OSRM'i kullanarak iki nokta arasındaki rota üzerindeki mesafeyi URL kullanarak hesaplamandi
 function calculateDistanceFromURL(startLat, startLon, endLat, endLon) {
-  const url = `http://router.project-osrm.org/route/v1/driving/${startLon},${startLat};${endLon},${endLat}?overview=false&steps=false`;
-
-  return new Promise((resolve, reject) => {
-    const delay = 1000; // 1 saniye gecikme
-    const timer = setTimeout(() => {
+    const url = `http://router.project-osrm.org/route/v1/driving/${startLon},${startLat};${endLon},${endLat}?overview=false&steps=false
+    `;
+    return new Promise((resolve, reject) => {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -13,10 +11,6 @@ function calculateDistanceFromURL(startLat, startLon, endLat, endLon) {
           resolve({ distanceInMeters, steps });
         })
         .catch((error) => reject(error));
-    }, delay);
-
-    return timer;
-  });
-}
-
-export { calculateDistanceFromURL };
+    });
+  }
+  export {calculateDistanceFromURL}
