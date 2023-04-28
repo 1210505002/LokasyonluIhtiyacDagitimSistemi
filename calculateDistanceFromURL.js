@@ -1,6 +1,6 @@
 // OpenStreetMap OSRM'i kullanarak iki nokta arasındaki rota üzerindeki mesafeyi URL kullanarak hesaplamandi
 function calculateDistanceFromURL(startLat, startLon, endLat, endLon) {
-    const url = `http://router.project-osrm.org/route/v1/driving/${startLon},${startLat};${endLon},${endLat}?overview=false&steps=false
+    const url = `https://router.project-osrm.org/route/v1/driving/${startLon},${startLat};${endLon},${endLat}?overview=false&steps=false
     `;
     return new Promise((resolve, reject) => {
       fetch(url)
